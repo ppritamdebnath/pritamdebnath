@@ -49,7 +49,7 @@
                 <button class="btn conbtn">Contact Me</button>
             </div>
             <div class="social">
-                <a href="https://twitter.com/ucpritam" class="icon-button twitter"><i
+                <a href="https://twitter.com/pritamd0057" class="icon-button twitter"><i
                         class="icon-twitter"></i><span></span></a>
                 <a href="https://github.com/ppritamdebnath" class="icon-button github"><i
                         class="icon-github"></i><span></span></a>
@@ -128,8 +128,8 @@
         <section class="section portfolios">
             <h1 class="section-title">portfolio</h1>
             <p class="section-desc">Here are the projects I've worked on. Want to contribute? <a
-                    href="mailto:pritammajumder432@gmail.com">Email me</a>.</p>
-            <div class="portfolio-container">
+                    href="mailto:ppritam.debnath@gmail.com">Email me</a>.</p>
+            <!--<div class="portfolio-container">
 
                 <div class="portfolio">
                     <div class="img pi1">
@@ -165,23 +165,21 @@
                     </div>
                 </div>
 
-            </div>
+            </div>-->
         </section>
 
 
         <section class="section contact ">
-            <h1 class="section-title">Contact</h1>
+            <h1 class="section-title">GET IN TOUCH</h1>
             <div class="contact-container">
-
-                <form class="contact-form" action="mailto:ppritam.debnath@gmail.com" method="post"
-                    enctype="text/plain">
-                    <input type="text" placeholder="Full Name">
-                    <input type="email" placeholder="Email Address">
-                    <input type="text" placeholder="Subject">
-                    <textarea name="message" placeholder="Message Here..."></textarea>
-                    <button class="btn">Send</button>
-                </form>
-
+				
+				<form method="post" class="contact-form">
+					<input type="text" placeholder="Name" id="name" autocomplete="off">
+					<input type="text" placeholder="Email" id="email" autocomplete="off">
+					<input type="text" placeholder="Subject" id="subject" autocomplete="off">
+					<textarea id="message" placeholder="Message" col="30" row="10"></textarea>
+					<button id="btn" class="btn" > Send </button>
+				</form>
             </div>
         </section>
     </header>
@@ -189,7 +187,29 @@
 
 
 
-
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+	<script>
+		var btn = document.getElementById('btn');
+		btn.addEventListener('click',function(e){
+			e.preventDefault()
+			var name = document.getElementById('name').value;
+			var email = document.getElementById('email').value;
+			var subject = document.getElementById('subject').value;
+			var message = document.getElementById('message').value;
+			var body = 'name: ' + name + '<br/> email: ' + email + '<br/> message: ' + message;
+			Email.send({
+				Host : "smtp.gmail.com",
+				Username : "ppritam.debnath@gmail.com",
+				Password : "owseafiyddqukdzu",
+				To : 'ppritam.debnath@gmail.com',
+				From : email,
+				Subject : subject,
+				Body : body
+			}).then(
+			  message => alert(message)
+			);
+		})
+	</script>
     <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -203,4 +223,3 @@
 </body>
 
 </html>
-© 2022 GitHub, Inc.
